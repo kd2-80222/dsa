@@ -1,5 +1,7 @@
 package com.sunbeam;
 
+import com.sunbeam.LinkedList.Node;
+
 public class LinkedList {
 	public class Node
 	{
@@ -23,17 +25,18 @@ public class LinkedList {
 	{
 		return head == null;
 	}
-	public void addFirst(int data)
-	{
-		Node newnode = new Node(data);
-		if(isEmpty())
-			head=newnode;
-		else 
-		{
-			newnode.next=head;
-			head=newnode;
-		}
-	}
+//	public void addFirst(int data)
+//	{
+//		
+//		Node newnode = new Node(data);
+//		if(isEmpty())
+//			head=newnode;
+//		else 
+//		{
+//			newnode.next=head;
+//			head=newnode;
+//		}
+//	}
 	public void addLast(int value) {
 		Node newnode = new Node(value);
 		if(isEmpty())
@@ -45,24 +48,31 @@ public class LinkedList {
 			trav.next = newnode;
 		}
 	}
-	
-	public void reverseList()
+	public void SortedInsert(int data)
 	{
 		
-		Stack stack =new Stack(10);
+		Node newnode = new Node(data);
 		Node trav=head;
-		while(trav != null)
-		{
-		
-			stack.push(trav.data);
-			trav=trav.next;
+		if(head == null || head.data > newnode.data)
+		{	newnode.next=head;
+			head=newnode;
 		}
-		System.out.print("Reverse list : ");
-		while(stack.isEmpty() == false)
+		
+		else
 		{
+			//Node trav=head;
 			
-			System.out.print("  " +stack.peek());
-			stack.pop();
+			while(trav.next!= null && trav.next.data <newnode.data)
+				trav=newnode;
+			
+			newnode.next=trav.next;
+			trav.next=newnode;
+			
+			
+			if(trav.next==null)
+			{
+				addLast(data);
+			}
 		}
 		
 	}

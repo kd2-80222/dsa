@@ -1,5 +1,7 @@
 package com.sunbeam;
 
+
+
 public class LinkedList {
 	public class Node
 	{
@@ -46,26 +48,32 @@ public class LinkedList {
 		}
 	}
 	
-	public void reverseList()
+	public void MinMaxNode()
 	{
-		
-		Stack stack =new Stack(10);
 		Node trav=head;
+		int max=trav.data;
 		while(trav != null)
 		{
-		
-			stack.push(trav.data);
+			if(trav.data >= max )
+				max=trav.data;
 			trav=trav.next;
-		}
-		System.out.print("Reverse list : ");
-		while(stack.isEmpty() == false)
-		{
 			
-			System.out.print("  " +stack.peek());
-			stack.pop();
+		}
+		Node trav1=head;
+		int min=trav1.data;
+		while(trav1!= null)
+		{
+			if(trav1.data <= min )
+				min=trav1.data;
+			trav1=trav1.next;
+			
 		}
 		
+		System.out.println("Max : " + max);
+		System.out.println("Min : " + min);
 	}
+	
+	
 	
 	public void display()
 	{

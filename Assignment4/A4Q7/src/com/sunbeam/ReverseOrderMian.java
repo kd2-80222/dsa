@@ -11,8 +11,8 @@ public class ReverseOrderMian {
 		
 		list.display();
 		
-		LinkedList resultlist = list.reverseList();
-		resultlist.display();
+		 list.reverseList();
+		
 
 	}
 
